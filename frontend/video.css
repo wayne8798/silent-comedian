@@ -1,0 +1,19 @@
+#slidebarCanvas line{
+	stroke:black;
+}
+
+.silenceBar{
+	stroke:black;
+	fill:rgba(0,0,0,0.2);
+	stroke-dasharray:5,2;
+}
+
+.axis path{
+	fill:none;
+	stroke:none;
+}
+
+.axis.right line{
+	stroke: #777;
+	stroke-width: 0.5;
+}
