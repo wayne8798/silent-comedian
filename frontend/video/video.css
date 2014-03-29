@@ -1,0 +1,62 @@
+.center {
+margin:auto;
+text-align: center ;
+}
+
+video {
+position: relative;
+z-index: 1;
+}
+
+#buttonbar {
+margin-top: 30px;
+position: relative;
+z-index: 2;
+}
+
+
+#seek-bar {
+    -webkit-appearance: none;
+    background-color: white;
+    width: 480px;
+}
+
+#seek-bar::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #666;
+    opacity: 0.5;
+    width: 10px;
+    height: 26px;
+}
+
+
+#progressTable {
+	margin-top: -100px;
+	margin-left: 330px;
+	position: relative;
+	z-index: 2;
+	color: white;
+}
+
+#loadingprogress{
+	/* border */
+	border-radius: 20px;
+	/* initial size */
+	height: 20px;
+	width: 0;
+	/* background color */
+	background-color: #9acd00;
+}
+
+
+.playButton {
+	z-index: 2;
+	position: absolute;
+	margin-top: 130px;
+	margin-left: 220px;
+	background: transparent url(image.png);
+	background-repeat: no-repeat;
+	width: 200px;
+	height: 200px;
+	border: none;
+}
