@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="video.css">
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="data.js"></script>
+	
+	<body>
+		<h1 class="title">The Notebook</h1>
+		<div class="video">
+			<p id="videoTimeTag">Video Goes Here</p>
+		</div>
+		<div class="graph">
+			<div class="info">
+				<span>Silence Bar:</span>
+				<span id="value">0</span>
+			</div>
+			<div class="info" id="unit">
+				Unit:dB
+			</div>
+			<svg>
+				<g id="axisCanvas"></g>
+				<g id="backCanvas"></g>
+				<g id="slidebarCanvas"></g>
+				<g id="silenceCanvas"></g>
+			</svg>
+		</div>
+	</body>
+	<script src="video.js"></script>
+</head>
+</html>
