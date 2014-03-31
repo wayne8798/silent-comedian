@@ -14,10 +14,14 @@ def find_primary_colors(count):
     # print out top 5 most frequent colors in the count'th frame.
     print "Frame " + str(count)
     print sorted_colors[-1]
-    print sorted_colors[-2]
-    print sorted_colors[-3]
-    print sorted_colors[-4]
-    print sorted_colors[-5]
+    if len(sorted_colors) > 1:
+        print sorted_colors[-2]
+    if len(sorted_colors) > 2:
+        print sorted_colors[-3]
+    if len(sorted_colors) > 3:
+        print sorted_colors[-4]
+    if len(sorted_colors) > 4:
+        print sorted_colors[-5]
 
 # takes in two arguments. first is the length of interval in seconds.
 # for example, if interval = 60, then the script will extract a frame
