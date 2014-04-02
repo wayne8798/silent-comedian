@@ -9,7 +9,24 @@
 	<body>
 		<h1 class="title">The Notebook</h1>
 		<div class="video">
-			<p id="videoTimeTag">Video Goes Here</p>
+			<!-- <p id="videoTimeTag">Video Goes Here</p> -->
+			<div class="videoContainer">
+				<video>
+				  <source src="demo.ogg" type="video/ogg" />
+				  <source src="demo.webm" type="video/webm" />
+				  <source src="demo.mp4" type="video/mp4" />
+					Your browser does not support video
+				     <a href="demo.mp4">Download the video</a> file. 
+				</video>
+				<table id="progressTable"><tr>
+					<td class="timeTD"> <span id="starttime">0:00:00</span></td>
+					<td>	
+						<input id="seek-bar" type="range" id="seek-bar" value="0" min="0">				
+					</td>
+					<td class="timeTD"> <span id="endtime">01:38:11</span></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div class="graph">
 			<div class="info">

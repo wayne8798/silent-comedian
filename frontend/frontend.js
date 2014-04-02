@@ -1,4 +1,4 @@
-var totalHeight = 300, totalWidth = 1000;
+var totalHeight = 250, totalWidth = 1000;
 			var margin = {top: 50, right:100, left:100, bottom:20};
 			var svgWidth = totalWidth - margin.left - margin.right, svgHeight = totalHeight - margin.top - margin.bottom;
 			var tickPadding = 20, graphPadding = 50, slidebarPadding = -50;
@@ -72,6 +72,16 @@ var totalHeight = 300, totalWidth = 1000;
 			.data(function(d,i){
 				var res = [], currentY = 0;	
 				d.colors.sort(function(a,b){return a.ratio - b.ratio;});
+
+				//Fix Data
+				var sumRatio = 0;
+				for(var j = 0;j < d.colors.length;j ++)
+					sumRatio = sumRatio + d.colors[j].ratio;
+				
+				for(var j = 0;j < d.colors.length;j ++)
+					d.colors[j].ratio = d.colors[j].ratio / sumRatio;
+
+
 				d.colors.forEach(function(element,index,array){
 					var t= {
 						color:element.color,
@@ -258,14 +268,11 @@ var totalHeight = 300, totalWidth = 1000;
 				.attr("x",function(d){return x(d.startTime)})
 				.attr("y",silenceOffsetY)
 				.attr("width",function(d){return x(d.endTime)-x(d.startTime);})
-				// .transition()
-				// .duration(1000)
-				// .delay(function(d,i){return i * 100})
 				.attr("height",silenceTotalHeight)
 			}
 
 
 			function silenceBarClick(d)
 			{				
-				document.getElementById("videoTimeTag").innerHTML="Play: "+d.startTime+" to "+d.endTime;
+				//document.getElementById("videoTimeTag").innerHTML="Play: "+d.startTime+" to "+d.endTime;
 			}
