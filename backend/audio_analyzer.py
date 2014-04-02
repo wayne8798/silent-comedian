@@ -11,9 +11,9 @@ from itertools import izip
 totalTime = 0
 totalPix = 0
 db_array = []
-moviename = "thering.mp4"
-audioname = "thering.wav"
-
+moviename = "thenotebook.mp4"
+audioname = "thenotebook.wav"
+newdir = moviename.replace(".mp4", "")
     # takes in two arguments. the first is the dB level. sound below this level
 # will be considered as silent. the second is the input WAV file name.
 db_lvl = int(30)
@@ -74,7 +74,7 @@ for lineA, lineB in izip(file1, file2):
             \"endTime\": {2},\n\
             \"imagePath\": \"{1}\",\n\
             \"dB\": {0},\n\
-            \"colors\":[".format(db_array[int((i)/5)], "frame" + str(framenum) + ".jpg", end, start) #
+            \"colors\":[".format(db_array[int((i)/5)], newdir + "/frame" + str(framenum) + ".jpg", end, start) #
     else:
         print>>f, ",\n",
     print>>f, "\
