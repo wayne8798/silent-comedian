@@ -65,7 +65,7 @@ if not os.path.exists(newdir):
 while success:
     success, image = vidcap.read()
     if frame_count % (int(frame_rate * interval)) == 0:
-       # cv2.imwrite(newdir + "/frame%d.jpg" % count, image)
+        cv2.imwrite(newdir + "/frame%d.jpg" % count, image)
         find_primary_colors(count)
         count += 1
     frame_count += 1
