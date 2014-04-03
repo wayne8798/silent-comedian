@@ -11,8 +11,8 @@ from itertools import izip
 totalTime = 0
 totalPix = 0
 db_array = []
-moviename = "thenotebook.mp4"
-audioname = "thenotebook.wav"
+moviename = "montypython.mp4"
+audioname = "montypython.wav"
 newdir = moviename.replace(".mp4", "")
     # takes in two arguments. the first is the dB level. sound below this level
 # will be considered as silent. the second is the input WAV file name.
@@ -26,7 +26,7 @@ dbs = [20*np.log10(np.sqrt(np.mean(chunk**2))+1) for chunk in chunks]
 count = 0
 dbtotal = 0
 countchunk = 0
-f = open("sound.txt", 'w')
+#f = open("sound.txt", 'w')
 for i in range(nchunks):
     count = count + 1
     if np.isnan(dbs[i]) == False:
@@ -40,18 +40,19 @@ for i in range(nchunks):
 countchunk+= 1
 db_array.append(dbtotal/count)
 totalTime = nchunks/30
-f.close()
+#f.close()
 
 
 tempstuff = -1
 start = 0
 end = 30
 i = 0
-f = open('newstuff.js','w')
+f = open(newdir+'.js','w')
 newimg = 0 #this tells us if we are done looking at one image
-print>>f, "var data = {"
+print>>f, "var {0} = {{".format(newdir)
 print>>f, "\"totalTime\": {0}, ".format(totalTime)
 print>>f, "\"videoPath\": \"{0}\", ".format(moviename)
+print>>f, "\"movieTitle\": \"{0}\", ".format(newdir)
 print>>f, "\"bars\": ["
 nonblank = 0
 with open('colors.txt') as numlines:
@@ -59,15 +60,14 @@ with open('colors.txt') as numlines:
        if line.strip():
           nonblank += 1
 #for stuff in range(len(color_array)):
-file1 = open("colors.txt")
-file2 = open("ratios.txt")
+file1 = open(newdir+"/colors.txt")
+file2 = open(newdir+"/ratios.txt")
 for lineA, lineB in izip(file1, file2):
     lineA = lineA.replace("\n", "")
     line = lineB.replace("\n", "")
     framenum = int(i/5)
+    print i
     if(newimg == 0):
-        start += 30
-        end += 30
         print>>f, "\
         {{\n\
             \"startTime\": {3},\n\
@@ -75,6 +75,8 @@ for lineA, lineB in izip(file1, file2):
             \"imagePath\": \"{1}\",\n\
             \"dB\": {0},\n\
             \"colors\":[".format(db_array[int((i)/5)], newdir + "/frame" + str(framenum) + ".jpg", end, start) #
+        start += 30
+        end += 30
     else:
         print>>f, ",\n",
     print>>f, "\
