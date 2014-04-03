@@ -4,24 +4,34 @@
 	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="frontend.css">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<script src="data.js"></script>
+	<script src="videoElement.js"></script>
+
+	<script src="africasahara.js"></script>
+	<script src="bbcafricacongo.js"></script>
+	<script src="gravity.js"></script>
+	<script src="frozen.js"></script>
+	<script src="montypython.js"></script>
+	<script src="thenotebook.js"></script>
+	<script src="thering.js"></script>
+	<script src="worldwarz.js"></script>
 	
-	<body>
-		<h1 class="title">The Notebook</h1>
+	<body xmlns:xlink="http://www.w3.org/1999/xlink">
+		<h1 id="movieTitle" class="title">Click on a Movie</h1>
 		<div class="video">
 			<!-- <p id="videoTimeTag">Video Goes Here</p> -->
-			<div class="videoContainer">
-				<video>
-				  <source src="demo.ogg" type="video/ogg" />
+			<div class="videoContainer" id="videoContainer">
+				<video id="Video1">
+					<source id="movieSource" src="frozen.mp4" type="video/mp4" />
+				  <!-- <source src="demo.ogg" type="video/ogg" />
 				  <source src="demo.webm" type="video/webm" />
-				  <source src="demo.mp4" type="video/mp4" />
-					Your browser does not support video
-				     <a href="demo.mp4">Download the video</a> file. 
+				   -->
+					<!-- Your browser does not support video
+				     <a href="demo.mp4">Download the video</a> file.  -->
 				</video>
 				<table id="progressTable"><tr>
 					<td class="timeTD"> <span id="starttime">0:00:00</span></td>
 					<td>	
-						<input id="seek-bar" type="range" id="seek-bar" value="0" min="0">				
+						<input id="seek-bar" type="range" value="0" min="0">				
 					</td>
 					<td class="timeTD"> <span id="endtime">01:38:11</span></td>
 					</tr>
@@ -36,12 +46,22 @@
 			<div class="info" id="unit">
 				Unit:dB
 			</div>
-			<svg>
+			<!-- <svg>
 				<g id="axisCanvas"></g>
 				<g id="backCanvas"></g>
 				<g id="slidebarCanvas"></g>
 				<g id="silenceCanvas"></g>
-			</svg>
+			</svg> -->
+		</div>
+		<div class="movieMenu">
+			<div class="movieItem" onclick="changeVideo(africasahara);">Africa Sahara</div>
+			<div class="movieItem" onclick="changeVideo(bbcafricacongo);">BBC Africa Congo</div>
+			<div class="movieItem" onclick="changeVideo(frozen);">Frozen</div>
+			<div class="movieItem" onclick="changeVideo(gravity);">Gravity</div>
+			<div class="movieItem" onclick="changeVideo(montypython);">Monty Python</div>
+			<div class="movieItem" onclick="changeVideo(thenotebook);">The Notebook</div>
+			<div class="movieItem" onclick="changeVideo(thering);">The Ring</div>
+			<div class="movieItem" onclick="changeVideo(worldwarz);">World War Z</div>
 		</div>
 	</body>
 	<script src="frontend.js"></script>
