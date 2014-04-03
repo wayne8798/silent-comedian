@@ -9,7 +9,7 @@ totalPix = 0
 color_array = []
 ratio_array = []
 db_array = []
-moviename = "thering.mp4"
+moviename = "worldwarz.mp4"
 # function that finds the primary colors
 def find_primary_colors(count):
     im = Image.open(newdir +"/frame%d.jpg" % count)
@@ -49,19 +49,21 @@ def find_primary_colors(count):
 # for example, if interval = 60, then the script will extract a frame
 # every 60 seconds and find the primary 5 colors in that frame.
 # the second argument is the name of the mp4 file.
+newdir = moviename.replace(".mp4", "")
+if not os.path.exists(newdir):
+    os.makedirs(newdir)
 interval = int(30)
 #moviename = "thering.mp4"
-newdir = moviename.replace(".mp4", "")
+
 vidcap = cv2.VideoCapture(moviename)
-f2 = open("ratios.txt", 'w')
-f = open("colors.txt", 'w')
+f2 = open(newdir+"/ratios.txt", 'w')
+f = open(newdir+"/colors.txt", 'w')
 # number of frame per second. please note it can be a float number.
 frame_rate = vidcap.get(5)
 count = 0
 frame_count = 0
 success = True
-if not os.path.exists(newdir):
-    os.makedirs(newdir)
+
 while success:
     success, image = vidcap.read()
     if frame_count % (int(frame_rate * interval)) == 0:
